@@ -1,4 +1,4 @@
-# Mes notes — test du site
+# Site de test d'accessibilité
 
 ## Ce que j'ai fait
 
