@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+
+<!-- DÉFAUT 1 : normalement c'est <html lang="fr">, j'ai enlevé le lang exprès -->
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Clinique Sante Plus</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- ===== EN-TETE ===== -->
+<header>
+  <h1 class="logo">Clinique Sante Plus</h1>
+
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="contact.html">Rendez-vous</a>
+
+    <!-- DÉFAUT 2 : ce lien contient juste une loupe, aucun mot -->
+    <a href="#recherche">🔍</a>
+  </nav>
+
+  <!-- DÉFAUT 3 : bouton menu avec juste le symbole, pas de texte -->
+  <button>☰</button>
+</header>
+
+
+<!-- ===== CONTENU ===== -->
+<main>
+
+  <!-- DÉFAUT 4 : ce paragraphe est en gris trop pale (voir style.css) -->
+  <p class="pale">Une equipe a votre ecoute du lundi au vendredi.</p>
+
+  <!-- DÉFAUT 5 : ca ressemble a un bouton mais c'est un <div>.
+       Du coup on peut pas l'atteindre avec la touche Tab -->
+  <div class="faux-bouton" onclick="window.location.href='contact.html'">
+    Prendre rendez-vous
+  </div>
+
+
+  <!-- DÉFAUT 6 : je passe de h1 a h3, le h2 est sauté -->
+  <h3>Nos services</h3>
+
+  <div class="cartes">
+
+    <div class="carte">
+      <!-- DÉFAUT 7 : pas d'attribut alt du tout -->
+      <img src="images/medecine-generale.jpg">
+      <h4>Medecine generale</h4>
+      <!-- DÉFAUT 8 : "Cliquez ici" ne dit pas ou ca mene -->
+      <a href="#">Cliquez ici</a>
+    </div>
+
+    <div class="carte">
+      <!-- DÉFAUT 9 : il y a un alt mais il decrit rien -->
+      <img src="images/vaccination.jpg" alt="image">
+      <h4>Vaccination</h4>
+      <a href="#">Cliquez ici</a>
+    </div>
+
+    <div class="carte">
+      <!-- celui-la est CORRECT : vrai alt + vrai texte de lien -->
+      <img src="images/laboratoire.jpg" alt="Trois eprouvettes de prelevement sanguin">
+      <h4>Prelevements</h4>
+      <a href="#">En savoir plus sur les prelevements</a>
+    </div>
+
+  </div>
+
+
+  <h3>Heures d'ouverture</h3>
+
+  <!-- DÉFAUT 10 : la premiere ligne devrait etre des <th>, j'ai mis des <td> -->
+  <table>
+    <tr>
+      <td>Jour</td>
+      <td>Ouverture</td>
+      <td>Fermeture</td>
+    </tr>
+    <tr>
+      <td>Lundi au jeudi</td>
+      <td>8h</td>
+      <td>19h</td>
+    </tr>
+    <tr>
+      <td>Vendredi</td>
+      <td>8h</td>
+      <td>16h</td>
+    </tr>
+  </table>
+
+
+  <!-- DÉFAUT 11 : le rouge est le seul indice que c'est urgent.
+       Un daltonien voit juste une phrase normale -->
+  <p class="rouge">En cas d'urgence composez le 911.</p>
+
+</main>
+
+
+<!-- DÉFAUT 12 : ca devrait etre <footer>, j'ai mis un <div> -->
+<div class="bas-de-page">
+  <p>1234 rue Sainte-Catherine Ouest, Montreal</p>
+  <p>514 555-0147</p>
+</div>
+
+</body>
+</html>

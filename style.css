@@ -1,0 +1,160 @@
+/* ==========================================
+   Mon site de test
+   Les defauts sont marques avec DÉFAUT
+   ========================================== */
+
+body {
+  font-family: Arial, sans-serif;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  color: #222;
+}
+
+
+/* DÉFAUT 21 : ca enleve le cadre qui apparait quand on appuie sur Tab.
+   Resultat : on navigue au clavier sans voir ou on est. */
+*:focus {
+  outline: none;
+}
+
+
+/* ===== EN-TETE ===== */
+
+header {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 15px;
+}
+
+.logo {
+  font-size: 20px;
+  color: #1a7a7a;
+  margin: 0;
+}
+
+nav a {
+  margin-right: 15px;
+  color: #1a7a7a;
+}
+
+
+/* ===== LES DEFAUTS DE COULEUR ===== */
+
+/* DÉFAUT 4 : gris trop pale sur blanc.
+   Il faut un ecart de 4.5 minimum, la j'ai 2.17 */
+.pale {
+  color: #b0b0b0;
+}
+
+/* DÉFAUT 11 et 16 et 19 : le rouge tout seul.
+   Le texte est lisible, mais l'info "attention" passe
+   seulement par la couleur */
+.rouge {
+  color: #c0392b;
+  font-weight: bold;
+}
+
+/* DÉFAUT 20 : blanc sur turquoise pale = ecart de 1.85 seulement */
+.bouton-pale {
+  background: #8ec9c9;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+
+/* DÉFAUT 5 : je deguise un div en bouton avec du CSS.
+   Visuellement c'est un bouton, techniquement non. */
+.faux-bouton {
+  display: inline-block;
+  background: #1a7a7a;
+  color: white;
+  padding: 12px 20px;
+  cursor: pointer;
+  margin-bottom: 20px;
+}
+
+
+/* ===== LES CARTES DE SERVICES ===== */
+
+.cartes {
+  display: flex;
+  gap: 15px;
+}
+
+.carte {
+  flex: 1;
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.carte img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+}
+
+.carte h4 {
+  margin: 10px 0 5px;
+}
+
+
+/* ===== TABLEAU ===== */
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+
+/* ===== FORMULAIRE ===== */
+
+label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select,
+textarea {
+  display: block;
+  width: 300px;
+  padding: 8px;
+  margin-top: 5px;
+  border: 1px solid #aaa;
+}
+
+input[type="radio"] {
+  display: inline;
+  margin-top: 10px;
+}
+
+input[type="radio"] + label {
+  display: inline;
+  font-weight: normal;
+  margin-right: 15px;
+}
+
+
+/* ===== BAS DE PAGE ===== */
+
+.bas-de-page {
+  border-top: 1px solid #ddd;
+  margin-top: 40px;
+  padding-top: 15px;
+  font-size: 14px;
+  color: #555;
+}
