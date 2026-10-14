@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+  <meta charset="UTF-8">
+  <!-- DÉFAUT 13 : le titre est vide, l'onglet du navigateur affiche rien -->
+  <title></title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+  <h1 class="logo">Clinique Sante Plus</h1>
+  <nav>
+    <a href="index.html">Accueil</a>
+    <a href="contact.html">Rendez-vous</a>
+  </nav>
+</header>
+
+
+<main>
+
+  <h2>Demande de rendez-vous</h2>
+
+  <form>
+
+    <!-- DÉFAUT 14 : pas de <label>, juste un placeholder.
+         Le placeholder disparait des qu'on tape dedans -->
+    <input type="text" placeholder="Nom complet">
+
+
+    <!-- DÉFAUT 15 : il y a un label mais il manque for="courriel".
+         Du coup rien ne relie le mot au champ -->
+    <label>Courriel</label>
+    <input type="email" id="courriel">
+
+
+    <!-- DÉFAUT 16 : l'etoile rouge veut dire "obligatoire"
+         mais c'est explique nulle part sur la page -->
+    <label for="tel">Telephone <span class="rouge">*</span></label>
+    <input type="tel" id="tel">
+
+
+    <!-- DÉFAUT 17 : la liste deroulante n'a aucun label -->
+    <select id="service">
+      <option>Choisir un service</option>
+      <option>Medecine generale</option>
+      <option>Vaccination</option>
+      <option>Prelevements</option>
+    </select>
+
+
+    <!-- DÉFAUT 18 : les 2 choix devraient etre dans un <fieldset>
+         avec un <legend>. La, la question est juste un <p> -->
+    <p>Moment de la journee</p>
+    <input type="radio" id="matin" name="moment">
+    <label for="matin">Matin</label>
+    <input type="radio" id="pm" name="moment">
+    <label for="pm">Apres-midi</label>
+
+
+    <!-- celui-la est CORRECT : le label a bien le for -->
+    <label for="message">Votre message</label>
+    <textarea id="message" rows="4"></textarea>
+
+
+    <!-- DÉFAUT 19 : ce message d'erreur est tout seul.
+         Rien ne dit qu'il parle du champ telephone -->
+    <p class="rouge">Le numero de telephone est invalide.</p>
+
+
+    <!-- DÉFAUT 20 : blanc sur turquoise pale = illisible (voir style.css) -->
+    <button type="submit" class="bouton-pale">Envoyer</button>
+
+  </form>
+
+</main>
+
+
+<footer class="bas-de-page">
+  <p>1234 rue Sainte-Catherine Ouest, Montreal</p>
+</footer>
+
+</body>
+</html>
