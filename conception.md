@@ -97,7 +97,7 @@ veut comprendre deplie.
 
 ---
 
-## ce qui est pas encore regle : est-ce qu'on croit l'IA ?
+## Truc pas encore regle : est-ce qu'on croit l'IA ?
 
 Quand axe dit qu'il y a un probleme, c'est sur. C'est une regle, point.
 
@@ -110,8 +110,70 @@ J'ai pas encore choisi.
 
 ---
 
+## Architecture
+
+### Comment on donne la page a analyser
+
+Deux facons :
+
+- coller une URL
+- ou coller directement le HTML et le CSS
+
+J'ai mis la deuxieme parce que mon utilisateur teste son site **avant** de le
+publier. Souvent il est sur localhost, donc mon serveur peut pas l'atteindre.
+
+Au depart je voulais juste le HTML, mais sans le CSS je perds tous les defauts
+de contraste. Avec les deux, le navigateur calcule les vraies couleurs.
+
+Ce qui reste perdu avec le collage : le contenu genere par JavaScript.
+
+### Le chemin complet
+
+```
+URL collee  ─┐
+             ├─→  navigateur sans fenetre  →  axe  →  IA  →  resultats
+HTML + CSS  ─┘
+```
+
+Un seul moteur d'analyse, deux facons de le nourrir. Je code la partie
+"navigateur + axe" une seule fois.
+
+### Ce que l'IA recoit
+
+Pour la v1 : **la page entiere**.
+
+C'est pas optimal, ca coute plus cher. Mais mon site de test fait 2 petites
+pages, donc le probleme existe pas encore. Je prefere commencer simple.
+
+Quand ca deviendra trop lent ou trop cher, je passerai a : page entiere mais
+nettoyee. J'enleve le contenu des `<script>`, les commentaires, et je coupe les
+longs paragraphes. Je garde tous les elements, donc je rate rien.
+
+### Stockage
+
+Rien du tout. Je garde juste l'analyse precedente dans le navigateur, le temps
+de la session.
+
+Ca suffit pour comparer avant/apres : le dev analyse, corrige, relance, et voit
+ce qui a ete regle.
+
+Pas de base de donnees. Mon utilisateur corrige son site en une fois, il revient
+pas le lendemain. Et s'il revient, il relance l'analyse, ca prend 10 secondes.
+
+### Technologies
+
+**Node partout.**
+
+axe-core et Playwright sont ecrits en JavaScript. Les lancer depuis Java voudrait
+dire demarrer un deuxieme service juste pour ca. Trop de complication pour rien.
+
+Je connais pas Node. Mais j'ai deja vu un script qui fait navigateur + axe, donc
+j'ai une idee de a quoi ca ressemble. Je vais apprendre en construisant.
+
+---
+
 ## A faire
 
 - [ ] Choisir comment gerer la confiance dans les resultats IA
 - [ ] Dessiner les ecrans (accueil, resultats, detail)
-- [ ] Proposer l'architecture technique
+- [ ] Choisir quel modele d'IA utiliser
