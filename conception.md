@@ -110,6 +110,64 @@ J'ai pas encore choisi.
 
 ---
 
+## Les ecrans
+
+Deux ecrans seulement. Le detail d'une erreur est pas un troisieme ecran, c'est
+la ligne qui se deplie sur place. Comme ca le dev perd pas sa liste.
+
+### Ecran 1 — Accueil
+
+Deux onglets en haut : **URL** ou **Coller mon code**.
+
+Un seul des deux est visible a la fois. Au debut j'avais mis les deux champs
+ensemble avec deux boutons, mais je savais pas ce qui se passe si quelqu'un
+remplit les deux. Avec les onglets, le probleme existe plus.
+
+Dans l'onglet "Coller mon code" il y a deux zones : une pour le HTML, une pour
+le CSS. Sans le CSS je perds les defauts de contraste.
+
+En bas, un seul bouton **Analyser**.
+
+**Pendant l'attente :** le bouton devient "Analyse en cours..." et se desactive.
+Ca prend 5 a 15 secondes (lancer le navigateur, charger la page, axe, puis
+l'IA). Si l'ecran bouge pas, le dev croit que c'est plante et il reclique.
+
+Si j'ai le temps, j'affiche l'etape en cours : chargement → axe → IA.
+
+### Ecran 2 — Resultats
+
+En haut, une ligne de resume :
+
+```
+3 problemes corriges depuis la derniere analyse, 5 restants
+```
+
+Sans ca, le dev relance et voit juste moins de lignes. Il sait pas s'il en a
+regle 3 ou s'il a mal lu la fois d'avant.
+
+Puis la liste, **dans l'ordre du code, de haut en bas**. Pas par gravite. Le dev
+corrige en descendant dans son fichier, il saute pas partout.
+
+```
+⚠️  Image sans texte alternatif            [axe]
+⚠️  Le bouton ☰ n'a pas de nom lisible     [IA]
+⚠️  Contraste insuffisant                   [axe]
+```
+
+Il clique sur une ligne, elle se deplie et montre le detail.
+
+**Deux boutons en bas :**
+
+- **Relancer** — c'est le geste qu'il va faire le plus souvent
+- **Avoir tout le code corrige** — toutes les corrections appliquees d'un coup,
+  pret a recoller
+
+Le deuxieme bouton apparait seulement en mode "Coller mon code". Si le dev a
+donne une URL, son site est fait de templates ou de composants. Lui rendre un
+gros fichier HTML corrige lui sert a rien.
+
+---
+
 ## Architecture
 
 ### Comment on donne la page a analyser
@@ -175,5 +233,5 @@ j'ai une idee de a quoi ca ressemble. Je vais apprendre en construisant.
 ## A faire
 
 - [ ] Choisir comment gerer la confiance dans les resultats IA
-- [ ] Dessiner les ecrans (accueil, resultats, detail)
 - [ ] Choisir quel modele d'IA utiliser
+- [ ] Commencer le backend Node (serveur + navigateur + axe)
